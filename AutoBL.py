@@ -47,3 +47,5 @@ if __name__ == "__main__":
   time.sleep(4)
 
   driver.close()
+
+  print("done")
