@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 #              _        ____ _____  #
 #   __ _ _   _| |_ ___ | __ )_   _| #
 #  / _` | | | | __/ _ \|  _ \ | |   #
@@ -14,7 +15,9 @@ BODYTEMP_MAX = 36.7
 import time
 import random
 import datetime
+import chromedriver_binary
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 def makeTime() -> str:
   return str(datetime.datetime.now().strftime("%Y/%m/%d"))
