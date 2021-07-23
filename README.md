@@ -4,7 +4,7 @@
 
 ## Usage
 
-1. メールアドレス、パスワードを入力
+1. メールアドレス、パスワード、生成する体温範囲を入力
 
 ```python
 #!/usr/bin/env python3
@@ -15,8 +15,10 @@
 #  \__,_|\__,_|\__\___/|____/ |_|   #
 
 # consts
-LOGIN_ID = "" #メールアドレスを入力
-LOGIN_PW = "" #パスワードを入力
+LOGIN_ID = "" # メールアドレスを入力
+LOGIN_PW = "" # パスワードを入力
+BODYTEMP_LOW = # 体温の下限を入力
+BODYTEMP_MAX = # 体温の上限を入力
 ```
 
 2. `pip3 -r requirements.txt`
