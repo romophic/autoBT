@@ -21,6 +21,6 @@ LOGIN_PW = "" #パスワードを入力
 
 2. `pip3 -r requirements.txt`
 
-3. autobl.pyを実行
+3. autobt.pyを実行
 
 ![screencap](out.gif)
