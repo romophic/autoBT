@@ -1,8 +1,11 @@
 # autoBT
-## 体温の入力をサポートします
 
-## How to
+体温の入力をサポートします
+
+## Usage
+
 1. メールアドレス、パスワードを入力
+
 ```python
 #!/usr/bin/env python3
 #              _        ____ _____  #
@@ -15,7 +18,9 @@
 LOGIN_ID = "" #メールアドレスを入力
 LOGIN_PW = "" #パスワードを入力
 ```
+
 2. `pip3 -r requirements.txt`
+
 3. autobl.pyを実行
 
-![](out.gif)
+![screencap](out.gif)
