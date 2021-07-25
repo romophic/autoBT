@@ -17,7 +17,7 @@
 # consts
 LOGIN_ID = "" # メールアドレスを入力
 LOGIN_PW = "" # パスワードを入力
-BODYTEMP_LOW = # 体温の下限を入力
+BODYTEMP_MIN = # 体温の下限を入力
 BODYTEMP_MAX = # 体温の上限を入力
 ```
 
