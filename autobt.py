@@ -20,35 +20,40 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 def makeTime() -> str:
-  return str(datetime.datetime.now().strftime("%Y/%m/%d"))
+    return str(datetime.datetime.now().strftime("%Y/%m/%d"))
 
 def makeBodyTemp() -> str:
-  return str(int((random.randrange(int(BODYTEMP_MIN*10),int(BODYTEMP_MAX*10)+1,1)+random.randrange(int(BODYTEMP_MIN*10),int(BODYTEMP_MAX*10)+1,1))/2) / 10)
+    return str(int((random.randrange(int(BODYTEMP_MIN*10),int(BODYTEMP_MAX*10)+1,1)+random.randrange(int(BODYTEMP_MIN*10),int(BODYTEMP_MAX*10)+1,1))/2) / 10)
 
-rawurl = "https://docs.google.com/forms/d/e/1FAIpQLSegJ5_ypMJ10ZSQZbLH-Onkv-Ca2u0xLmJ_xNIRyfFCThM3Jw/viewform?usp=pp_url&entry.1061678014=" + \
-  makeTime() + "&entry.1274018874=" + \
-  makeBodyTemp()
+def submitTemp(submittime:str, submittemp:str):
+    rawurl = "https://docs.google.com/forms/d/e/1FAIpQLSegJ5_ypMJ10ZSQZbLH-Onkv-Ca2u0xLmJ_xNIRyfFCThM3Jw/viewform?usp=pp_url&entry.1061678014=" + \
+        submittime + "&entry.1274018874=" + \
+        submittemp
+    print(rawurl)
+
+    driver = webdriver.Chrome()
+    driver.get(rawurl)
+
+    time.sleep(2)
+
+    driver.find_element_by_xpath("//*[@id='identifierId']").send_keys(LOGIN_ID)
+    driver.find_element_by_xpath("//*[@id='identifierNext']").click()
+
+    time.sleep(2)
+
+    driver.find_element_by_xpath("//*[@id='password']/div[1]/div/div[1]/input").send_keys(LOGIN_PW)
+    driver.find_element_by_xpath("//*[@id='passwordNext']").click()
+
+    time.sleep(2)
+
+    driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div/div').click()
+
+    time.sleep(2)
+
+    driver.close()
+
+    print("done")
+
 
 if __name__ == "__main__":
-  driver = webdriver.Chrome()
-  driver.get(rawurl)
-
-  time.sleep(4)
-
-  driver.find_element_by_xpath("//*[@id='identifierId']").send_keys(LOGIN_ID)
-  driver.find_element_by_xpath("//*[@id='identifierNext']").click()
-
-  time.sleep(4)
-
-  driver.find_element_by_xpath("//*[@id='password']/div[1]/div/div[1]/input").send_keys(LOGIN_PW)
-  driver.find_element_by_xpath("//*[@id='passwordNext']").click()
-
-  time.sleep(4)
-
-  driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div/div').click()
-
-  time.sleep(4)
-
-  driver.close()
-
-  print("done")
+    submitTemp(makeTime(), makeBodyTemp())
